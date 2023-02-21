@@ -61,7 +61,7 @@ main = runInBody Deku.do
   let direction = Keyborad.down 
         <#> key_to_direction  
         # compact
-      tick = interval 500
+      tick = interval 200
       position = fold add (5 /\ 5) (tick *|> (pure Right <|> direction) <#> point)  
   D.svg (D.Width !:= "100vw" <|> D.Height !:= "100vh")
     [ position <#~> player

@@ -5542,7 +5542,7 @@
     return Nothing.value;
   };
   var main = /* @__PURE__ */ runInBody(/* @__PURE__ */ function() {
-    var tick = interval(500);
+    var tick = interval(200);
     var direction = compact(compactableEvent)(mapFlipped3(down)(key_to_direction));
     var position2 = fold2(eventIsEvent)(add(semiringTuple(semiringInt)(semiringInt)))(new Tuple(5, 5))(mapFlipped3(sampleOnLeft_(eventIsEvent)(tick)(alt6(pure(applicativeEvent)(Right2.value))(direction)))(point));
     return svg(alt6(pureAttr(attrSvg_WidthString)(Width.value)("100vw"))(pureAttr(attrSvg_HeightString)(Height.value)("100vh")))([switcherFlipped(position2)(player)]);
