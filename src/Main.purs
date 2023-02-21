@@ -23,7 +23,7 @@ import Deku.Core (Nut)
 import Data.Tuple (Tuple)
 import FRP.Event.Time (interval)
 import FRP.Event.Class (fold, (*|>))
-import FRP.Behavior.Mouse (position)
+
 
 size :: Int
 
@@ -62,7 +62,7 @@ main = runInBody Deku.do
         <#> key_to_direction  
         # compact
       tick = interval 500
-      position = fold add (5 /\ 5) (tick *|> direction <#> point)  
+      position = fold add (5 /\ 5) (tick *|> (pure Right <|> direction) <#> point)  
   D.svg (D.Width !:= "100vw" <|> D.Height !:= "100vh")
     [ position <#~> player
     ]
